@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Snake</title>
+<meta name="description" content="A Python turtle-graphics snake game, running unmodified in the browser.">
+<meta name="theme-color" content="#161a14">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23e8e6a0'/><rect x='18' y='44' width='46' height='14' rx='3' fill='%23008b00'/><circle cx='78' cy='51' r='9' fill='%23e00'/></svg>">
+<link rel="stylesheet" href="web/app.css">
+</head>
+<body>
+<div class="shell">
+
+  <header class="bar">
+    <h1>Snake</h1>
+    <p class="sub">Python <code>turtle</code>, running unmodified in your browser</p>
+  </header>
+
+  <div class="stage-frame" id="stage-frame">
+    <!-- Skulpt's turtle module appends its stacked canvases here. -->
+    <div id="stage" aria-label="Snake game board" role="img"></div>
+
+    <div class="veil" id="veil" hidden>
+      <div class="veil-card">
+        <p class="veil-title" id="veil-title">Loading</p>
+        <p class="veil-text" id="veil-text">Starting the Python interpreter…</p>
+        <button class="btn primary" id="veil-btn" hidden type="button">Play again</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="bar controls">
+    <p class="hint"><kbd>Space</kbd> to start · <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> to steer</p>
+    <button class="btn" id="restart" type="button">Restart</button>
+  </div>
+
+  <!-- Touch controls: the game only listens for keys, so these fire the very
+       same handlers snake.py registered with onkeypress(). -->
+  <div class="pad" id="pad" hidden>
+    <button class="key wide" data-key="space" type="button">Start</button>
+    <button class="key up"    data-key="up"    type="button" aria-label="Up">↑</button>
+    <button class="key left"  data-key="left"  type="button" aria-label="Left">←</button>
+    <button class="key down"  data-key="down"  type="button" aria-label="Down">↓</button>
+    <button class="key right" data-key="right" type="button" aria-label="Right">→</button>
+  </div>
+
+  <footer class="foot">
+    <p>The game logic is <a href="snake.py">snake.py</a>, byte for byte as written.
+       It is fetched at runtime and executed by
+       <a href="https://skulpt.org" rel="noopener">Skulpt</a>.</p>
+  </footer>
+
+</div>
+
+<script src="vendor/skulpt/skulpt.min.js"></script>
+<script src="vendor/skulpt/skulpt-stdlib.js"></script>
+<script src="web/tk-colors.js"></script>
+<script src="web/app.js"></script>
+</body>
+</html>
